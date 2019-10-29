@@ -1,0 +1,4 @@
+com\hbt\semillero\common\JaxRSActivator.class
+com\hbt\semillero\dto\ResultadoDTO.class
+com\hbt\semillero\servicios\rest\config\CORSFilter.class
+com\hbt\semillero\dto\JsonUtils.class
