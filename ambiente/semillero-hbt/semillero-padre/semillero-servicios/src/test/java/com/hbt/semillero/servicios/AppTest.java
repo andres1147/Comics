@@ -1,7 +1,12 @@
 package com.hbt.semillero.servicios;
 
+import java.math.BigDecimal;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.hbt.semillero.entidades.Comic;
+import com.hbt.semillero.entidades.EstadoEnum;
 
 public class AppTest {
 
@@ -42,6 +47,47 @@ public class AppTest {
         
         return cadenaInvertida;
 }
+	
+	
+		//TODO
+		/*
+		 * Pendiente hacer un metodo que use el metodo TODO de la entidad Comic
+		 */
+	public void crearComic() {
+		Comic comic1 = new Comic();
+		
+		comic1.setNombre("Iron Man");
+		comic1.setEditorial("Marvel");
+		comic1.setColeccion("Guerreros Galaxia");
+		comic1.setNumeroPaginas(147);
+		comic1.setPrecio(new BigDecimal(1500));
+		comic1.setCantidad(5L);
+	}
+	
+	
+	@Test
+	public void manipularEstadoEnum() {
+		EstadoEnum enum1 = EstadoEnum.ACTIVO;
+		EstadoEnum enum2 = EstadoEnum.INACTIVO;
+		enum1.setCodigoMensaje("1");
+		
+		//Compara un estatico con el metodo del enumerador que devuelve un String con el nombre de la constante (ACTIVO)
+		Assert.assertEquals(enum1.name(), "ACTIVO");
+
+		// Valida la posicion comparando un dato de entrada con la posición del enum según está declarada (0)
+		Assert.assertEquals(enum1.ordinal(), 0);
+		
+		// Testea sobre la diferencia entre el parametro segun el orden de los dos enum declarados
+		Assert.assertTrue(enum1.compareTo(enum2)<0);  
+		
+		String[] nuevoArray= new String[]{"ACTIVO", "INACTIVO"};
+		
+		// Compara el array creado con lo que devuelve el metodo enumerador
+		Assert.assertEquals(EstadoEnum.values(),  nuevoArray);
+	}
+	
+	
+	
 	
 }
 
