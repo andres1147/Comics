@@ -10,6 +10,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
 import { MenuComponent } from './semillero/componentes/menu/menu-component';
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
+import { MostrarNombreComponent } from './semillero/componentes/mostrar-nombre/mostrar-nombre.component';
 
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
@@ -20,7 +21,8 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
     AppComponent,
     MenuComponent,
     BienvenidaComponent,
-    GestionarComicComponent
+    GestionarComicComponent,
+    MostrarNombreComponent,
   ],
   imports: [
     BrowserModule,
