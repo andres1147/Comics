@@ -1,12 +1,16 @@
 package com.hbt.semillero.servicios;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.entidades.Comic;
 import com.hbt.semillero.entidades.EstadoEnum;
+import com.hbt.semillero.entidades.TematicaEnum;
+import com.hbt.semillero.pojo.GestionarComicPOJO;
 
 public class AppTest {
 
@@ -14,7 +18,7 @@ public class AppTest {
 
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void primeraPU() {
 		Long resultadoEsperado=150L;
 		Long sumando1=100L;
@@ -23,7 +27,7 @@ public class AppTest {
 		Assert.assertEquals(resultado, resultadoEsperado);	
 	}
 
-	@Test
+	@Test(enabled=false)
 	private String invertirCadena(String cadena) {
 		
 		//Validación para que la longitud del dato de entrada sea mayor a 1
@@ -65,7 +69,7 @@ public class AppTest {
 	}
 	
 	
-	@Test
+	@Test(enabled=false)
 	public void manipularEstadoEnum() {
 		EstadoEnum enum1 = EstadoEnum.ACTIVO;
 		EstadoEnum enum2 = EstadoEnum.INACTIVO;
@@ -87,7 +91,53 @@ public class AppTest {
 	}
 	
 	
+	//add
+	@Test(enabled=false)
+	public void crearComicDTOTest() {
+		
+		GestionarComicPOJO gestionarComicPOJO = new GestionarComicPOJO();
+		gestionarComicPOJO.crearComicDTO();	
+		
+		Assert.assertNotNull(gestionarComicPOJO.getListaComics());
+		Assert.assertTrue(gestionarComicPOJO.getListaComics().size()!=0);
+		//preferible usar el metodo de abajo
+		Assert.assertTrue(!gestionarComicPOJO.getListaComics().isEmpty());
+	}
 	
+	//add
+	@Test(enabled=false)
+	public void creartComicDTOTest() {
+		
+		GestionarComicPOJO gestionarComicPOJO = new GestionarComicPOJO();
+		ComicDTO comicDTO = gestionarComicPOJO.crearComicDTO("101", 
+				"Capitan America", "Panini", TematicaEnum.FANTASTICO, "BIBLIOTECA MARVEL", 128,
+				new BigDecimal(5000), "Phillippe", Boolean.FALSE, LocalDate.now(), EstadoEnum.ACTIVO, 5L);
+		
+		gestionarComicPOJO.agregarComicDTOLista(comicDTO);
+		
+		Assert.assertNotNull(gestionarComicPOJO.getListaComics());
+		Assert.assertTrue(!gestionarComicPOJO.getListaComics().isEmpty());
+		Assert.assertTrue(gestionarComicPOJO.getListaComics().size()==1);
+		//preferible usar el metodo de abajo
+		
+		comicDTO = new ComicDTO();
+		
+		comicDTO.setId("100");
+		comicDTO.setNombre("Dragon Ball Yamcha");
+		comicDTO.setEditorial("Planeta Cómic");
+		comicDTO.setTematicaEnum(null);
+		comicDTO.setColeccion("Manga Shonen");
+		comicDTO.setNumeroPaginas(100);
+		comicDTO.setPrecio(new BigDecimal(2100));
+		comicDTO.setAutores("Dragon Garow Lee");
+		comicDTO.setColor(Boolean.TRUE);
+		comicDTO.setFechaVenta(LocalDate.now());
+		comicDTO.setEstadoEnum(null);
+		comicDTO.setCantidad(20L);
+		
+		gestionarComicPOJO.agregarComicDTOLista(comicDTO);
+		Assert.assertTrue(gestionarComicPOJO.getListaComics().size()>1);
+	}
 	
 }
 
