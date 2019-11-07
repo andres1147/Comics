@@ -1,3 +1,4 @@
+C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\rest\GestionarComicRest.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\entidades\TematicaEnum.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\ejb\GestionarComicBean.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\entidades\EstadoEnum.java
@@ -5,6 +6,7 @@ C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\sr
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\dto\JsonUtils.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\pojo\GestionarComicPOJO.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\dto\ResultadoDTO.java
+C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\ejb\IGestionarComicLocal.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\entidades\Comic.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\dto\ComicDTO.java
 C:\gitAndresGarces\ambiente\semillero-hbt\semillero-padre\semillero-servicios\src\main\java\com\hbt\semillero\common\JaxRSActivator.java

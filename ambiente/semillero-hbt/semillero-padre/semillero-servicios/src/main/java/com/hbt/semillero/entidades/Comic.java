@@ -29,22 +29,25 @@ import javax.persistence.Table;
 public class Comic implements Serializable{
 
 	/**
-	 * Atributo que determina  
+	 * Serializar es pasar un Objeto a un array de bytes y viceversa. Atributo que
+	 * determina serialVersionUID es el id único que identifica una clase cuando lo
+	 * serializamos. ;ediante este id podemos identificar el objeto convertido en un
+	 * array de bytes.
 	 */
 	private static final long serialVersionUID = 4322034079745146450L;
 	
 	
-	private String id;
+	private Long id;
     private String nombre;
     private String editorial;
-    private String tematicaEnum;
+    private TematicaEnum tematicaEnum;
     private String coleccion;
     private Integer numeroPaginas;
     private BigDecimal precio;
     private String autores;
     private Boolean color;
     private LocalDate fechaVenta;
-    private String estadoEnum;
+    private EstadoEnum estadoEnum;
     private Long cantidad;
 
 	/**
@@ -66,7 +69,7 @@ public class Comic implements Serializable{
 	@Column(name="SCID")
 	@SequenceGenerator(allocationSize = 1, name = "COMIC_SCID_GENERATOR", sequenceName = "SEQ_COMIC")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMIC_SCID_GENERATOR")
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -74,7 +77,7 @@ public class Comic implements Serializable{
 	 * Metodo encargado de modificar el valor del atributo id
 	 * @param id El nuevo id a modificar.
 	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -118,18 +121,17 @@ public class Comic implements Serializable{
 	 * Metodo encargado de retornar el valor del atributo tematicaEnum
 	 * @return El tematicaEnum asociado a la clase
 	 */
-	
-	@Column(name="SCTEMATICA")
+
+	@Column(name = "SCTEMATICA")
 	@Enumerated(value = EnumType.STRING)
-	public String getTematicaEnum() {
+	public TematicaEnum getTematicaEnum() {
 		return tematicaEnum;
 	}
-
 	/**
 	 * Metodo encargado de modificar el valor del atributo tematicaEnum
 	 * @param tematicaEnum El nuevo tematicaEnum a modificar.
 	 */
-	public void setTematicaEnum(String tematicaEnum) {
+	public void setTematicaEnum(TematicaEnum tematicaEnum) {
 		this.tematicaEnum = tematicaEnum;
 	}
 
@@ -250,7 +252,7 @@ public class Comic implements Serializable{
 	
 	@Column(name="SCESTADO")
 	@Enumerated(value = EnumType.STRING)
-	public String getEstadoEnum() {
+	public EstadoEnum getEstadoEnum() {
 		return estadoEnum;
 	}
 
@@ -258,7 +260,7 @@ public class Comic implements Serializable{
 	 * Metodo encargado de modificar el valor del atributo estadoEnum
 	 * @param estadoEnum El nuevo estadoEnum a modificar.
 	 */
-	public void setEstadoEnum(String estadoEnum) {
+	public void setEstadoEnum(EstadoEnum estadoEnum) {
 		this.estadoEnum = estadoEnum;
 	}
 
@@ -283,7 +285,8 @@ public class Comic implements Serializable{
 
 
 	/** 
-	 * @see java.lang.Object#toString()
+	 * @see java.lang.Object#toString() Metodo que permite asociar al objeto un
+	 *      texto representativo
 	 */
 	@Override
 	public String toString() {
@@ -296,7 +299,11 @@ public class Comic implements Serializable{
 
 
 	/** 
-	 * @see java.lang.Object#hashCode()
+	 * @see java.lang.Object#hashCode() Este método viene a complementar al método
+	 *      equals y sirve para comparar objetos de una forma más rápida en
+	 *      estructuras Hash ya que únicamente nos devuelve un número entero. Cuando
+	 *      Java compara dos objetos en estructuras de tipo hash (HashMap, HashSet
+	 *      etc) primero invoca al método hashcode y luego el equals
 	 */
 	@Override
 	public int hashCode() {
