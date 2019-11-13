@@ -1,6 +1,4 @@
-<img src="https://www.elempleo.com/sitios-empresariales/colombia/heinsohn-business-technology/img/elempleo-02.jpg" height="500" width="1000">
-<div class="row">
-    <br>
-    <h2>ANDRES GARCES CANDAMIL --- MANIZALES</h2>
-    <app-mostrar-nombre></app-mostrar-nombre>
-</div>
+
+<img [src]="urlImagen" height="500" width="1000" (click)="ejecucionEventoClick('Diego alvarez', 323423)">
+<crear-persona></crear-persona>
+<input type="text" class="form-control-plaintext" id="staticEmail" [(ngModel)]="urlImagen" name="urlImagen">
