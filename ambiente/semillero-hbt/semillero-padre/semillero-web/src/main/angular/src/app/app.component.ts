@@ -14,6 +14,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.router.navigate(['bienvenida']);    
+   //this.router.navigate(['consultar-comic']);  
     
   }
 }

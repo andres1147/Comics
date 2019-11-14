@@ -1,7 +1,17 @@
 <div class="container">
     <form [formGroup]="gestionarComicForm">
-        <h1>Gestionar Comic</h1>
+
+
+        <h1>{{titulo}}</h1>
         <hr>
+
+        <div class="row" *ngIf="mostrarId">
+                <div class="col-6">
+                    <label for="idComic">Id Comic:     </label> <br>
+                    <label for="idComic">{{idMostrar}}</label>
+                </div>
+         </div>
+
 
         <div class="row">
             <div class="col-6">
@@ -75,17 +85,30 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-6">
+            <div >
                 <span></span>
             </div>
-            <div class="col-6 text-right">
+            <div *ngIf="!consultar">
+                    <button type="button" class="btn btn-primary" (click)="cancelar()">Cancelar</button>
+                </div>
+            <div  *ngIf="!consultar">
                 <button type="button" class="btn btn-primary" (click)="crearActualizarComic()">Crear/Editar</button>
             </div>
+            <div class="col-6 text-right" *ngIf="consultar">
+                    <button type="button" class="btn btn-primary" (click)="regresarGestionar()">Regresar</button>
+            </div>
+            <div class="row" *ngIf="mostrarEliminar">
+                    <div >
+                            <label for="notif">Se ha eliminado un comic:</label>
+                    </div>
+                    <div >
+                            <button type="button" class="btn btn-primary" (click)="cancelar()">Cerrar</button>
+                    </div>
+                   
+                </div>
         </div>
-
-        <br>
         
-        <div class="row" [hidden]="listaComics.length === 0">
+        <div class="row" [hidden]="listaComics.length === 0" *ngIf="!consultar">
             <div class="col-12">
                 <table class="table">
                     <thead>
@@ -99,7 +122,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!--date:"MM/dd/yy"
+                        <!--date:"MM/dd/yy"  
+                            (click)="consultarComic(i)" 
                         | uppercase-->
                         <tr *ngFor="let comic of listaComics;let i=index;">
                             <th scope="row">{{comic.id}}</th>
@@ -109,8 +133,8 @@
                             <td>{{comic.color ? 'Si' : 'No' }}</td>
                             <td>
                                 <i class="fas fa-search 2x ml-1" (click)="consultarComic(i)" title="Consultar"></i>
-                                <i class="fas fa-pencil-alt 2x ml-1"  [routerLink]="['/bienvenida',comic]" title="Editar"></i>
-                                <i class="far fa-times-circle 2x ml-1" (click)="editarComic(comic)" title="Eliminar"></i>
+                                <i class="fas fa-pencil-alt 2x ml-1"  (click)="editarComic(i)" title="Editar"></i>
+                                <i class="far fa-times-circle 2x ml-1"  (click)="eliminarComic(i)"  title="Eliminar"></i>
                             </td>
                         </tr>
                     </tbody>
