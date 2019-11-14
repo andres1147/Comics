@@ -11,5 +11,16 @@ package com.hbt.semillero.pojo;
  */
 public class ejercicio{
 	
+	  public boolean esPrimo(int numero){
+	        int cont = 2;
+	        boolean primo=true;
+	        while ((primo) && (cont!=numero)){
+	          if (numero % cont == 0)
+	            primo = false;
+	          cont++;
+	        }
+	        return primo;
+	      }
+	    
 
 }
