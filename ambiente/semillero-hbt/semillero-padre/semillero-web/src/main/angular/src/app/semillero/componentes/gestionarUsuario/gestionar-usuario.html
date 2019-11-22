@@ -1,0 +1,100 @@
+<div class="container">
+    <form [formGroup]="gestionarUsuarioForm">
+
+
+        <h1>{{titulo}}</h1>
+        <hr>
+
+        <div class="row" *ngIf="mostrarEditarConsultar">
+            <div class="col-6">
+                <label for="idUsuario">id:</label>
+                <br>
+                <input type="text" class="form-control" id="idUsuario" formControlName="id">
+            </div>
+            <div class="col-6">
+                <label for="nombreUsuario">Nombre:</label>
+                <input type="text" class="form-control" id="nombreUsuario" formControlName="nombre">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="fechaCreacionUsuario">Fecha Creacion:</label>
+                <br>
+                <input type="date" class="form-control" id="fechaCreacionUsuario" formControlName="fechaCreacion">
+            </div>
+            <div class="col-6">
+                <label for="idPersonaUsuario">Id Persona:</label>
+                <input type="text" class="form-control" id="idPersonaUsuario" formControlName="idPersona"
+                [ngClass]="{ 'is-invalid': submitted && f.idPersona.errors }">
+                <div *ngIf="submitted && f.idPersona.errors">
+                        <span class="text-danger" *ngIf="f.idPersona.errors.required">Campo requerido.</span>
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="row" *ngIf="mostrarEditarConsultar">
+            <label for="estadoUsuario">Estado Usuario:</label>
+            <br>
+            <input type="text" class="form-control" id="estadoUsuario" formControlName="estado">
+        </div>
+
+
+        <br>
+        <div class="row">
+            <div>
+                <span></span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="limpiarFormulario()">Cancelar</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="crearActualizarUsuario()">Crear/Editar</button>
+            </div>
+            <div class="col-6 text-right" *ngIf="consultar">
+                <button type="button" class="btn btn-primary" (click)="regresarGestionar()">Regresar</button>
+            </div>
+            <div class="row" *ngIf="mostrarEliminar">
+                <div>
+                    <label for="notif">Se ha eliminado un usuario:</label>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" (click)="cancelar()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" [hidden]="listaUsuarios.length === 0">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha Creacion</th>
+                            <th scope="col">Estado Usuario</th>
+                            <th scope="col">Id persona</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let usuario of listaUsuarios;let i=index;">
+                            <th scope="row">{{usuario.id}}</th>
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.fechaCreacion | date: 'shortDate'}}</td>
+                            <td>{{usuario.estadoUsuario | uppercase}}</td>
+                            <td>{{usuario.idPersona | lowercase}}</td>
+                            <td>
+                                <i class="fas fa-search 2x ml-1" (click)="consultarUsuario(i)" title="Consultar"></i>
+                                <i class="fas fa-pencil-alt 2x ml-1" (click)="editarUsuario(i)" title="Editar"></i>
+                                <i class="far fa-times-circle 2x ml-1" (click)="inactivarUsuario(i)" title="Inactivar"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+
+</div>

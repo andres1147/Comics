@@ -29,6 +29,15 @@ export class MenuComponent implements OnInit {
   }
 
   /**
+   * Navegar al componente gestionar-usuario 
+   * mediante routerLink aplicado desde este metodo invocado desde una etiqueta
+   * <a> del menu-component.html
+   */
+  public navegarGestionarUsuario(): void {
+    this.router.navigate(['gestionar-usuario']);
+  }
+
+  /**
    * @description Metodo encargado de direccionar al componente de gestionar comic
    * @author Diego Fernando Alvarez Silva <dalvarez@heinsohn.com.co>
    */
@@ -47,4 +56,6 @@ export class MenuComponent implements OnInit {
   public navegarGestionarCompra(): void {
     //WIP
   }
+
+
 }
