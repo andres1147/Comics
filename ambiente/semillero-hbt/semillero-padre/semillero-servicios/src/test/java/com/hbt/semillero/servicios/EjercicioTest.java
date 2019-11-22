@@ -16,9 +16,8 @@ public class EjercicioTest {
 
 	@Test(enabled = false)
 	public void ejercicio3() {
-
 		// Validacion de los diferentes casos
-		Assert.assertTrue(ejerc.esPrimo(5) && ejerc.esPrimo(222) && ejerc.esPrimo(0));
+		Assert.assertTrue(ejerc.esPrimo(5) && ejerc.esPrimo(7) && ejerc.esPrimo(3));
 	}
 
 	@Test(enabled = false)
@@ -30,9 +29,6 @@ public class EjercicioTest {
 		Assert.assertTrue(ejerc.sumaFechas(date, 21));
 	}
 
-	
-	
-	
 }
 
 

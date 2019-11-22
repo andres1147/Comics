@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Ejercicio {
 
-	public boolean esPrimo(int numero) {
+	public  boolean esPrimo(int numero) {
 		int cont = 2;
 		boolean primo = true;
 		while ((primo) && (cont != numero)) {
